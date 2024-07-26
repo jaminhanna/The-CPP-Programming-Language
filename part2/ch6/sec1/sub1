@@ -1,0 +1,26 @@
+6.1.1 Implementations
+
+A C++ implementation can be either hosted or freestanding
+(§17.6.1.3). A hosted implementation includes all the standard-library
+facilities as described in the standard (§30.2) and in this book. A
+freestanding implementation may provide fewer standard-library
+facilities, as long as the following are provided:
+
+  Freestanding Implementation Headers
+  Types                       <cstddef>                       §10.3.1
+  Implementation properties   <cfloat><limits><climits>       §40.2
+  Integer types               <cstdint>                       §43.7
+  Start and termination       <cstdlib>                       §43.7
+  Dynamic memory management   <new>                           §11.2.3
+  Type identification         <typeinfo>                      §22.5
+  Exception handling          <exception>                     §30.4.1.1
+  Initializer lists           <initializer_list>              §30.3.1
+  Other run-time support      <cstdalign><cstdarg><cstdbool>  §12.2.4,
+                                                              §44.3.4
+  Type traits                 <type_traits>                   §35.4.1
+  Atomics                     <atomic>                        §41.3
+
+Freestanding implementations are meant for code running with only the
+most minimal operating system support. Many implementations also
+provide a (non-standard) option for not using exceptions for really
+minimal, close-to-the-hardware, programs.

@@ -1,0 +1,18 @@
+4.1.1 Standard-Library Overview
+
+The facilities provided by the standard library can be classified like this:
+	- Run-time language support (e.g., for allocation and run-time type information); see §30.3.
+	- The C standard library (with very minor modifications to minimize violations of the type system); see Chapter 43.
+	- Strings and I/O streams (with support for international character sets and localization); see Chapter 36, Chapter 38, and Chapter 39. I/O streams is an extensible framework to which users can add their own streams, buffering strategies, and character sets.
+	- A framework of containers (such as vector and map) and algorithms (such as find(), sort(), and merge()); see §4.4, §4.5, Chapters 31-33. This framework, conventionally called the STL [Stepanov,1994], is extensible so users can add their own containers and algorithms.
+	- Support for numerical computation (such as standard mathematical functions, complex numbers, vectors with arithmetic operations, and random number generators); see §3.2.1.1 and Chapter 40.
+	- Support for regular expression matching; see §5.5 and Chapter 37.
+	- Support for concurrent programming, including threads and locks; see §5.3 and Chapter 41. The concurrency support is foundational so that users can add support for new models of concurrency as libraries.
+	- Utilities to support template metaprogramming (e.g., type traits; §5.4.2, §28.2.4, §35.4), STL-style generic programming (e.g., pair; §5.4.3, §34.2.4.1), and general programming (e.g., clock; §5.4.1, §35.2).
+	- "Smart pointers" for resource management (e.g., unique_ptr and shared_ptr; §5.2.1, §34.3) and an interface to garbage collectors (§34.5).
+	- Special-purpose containers, such as array (§34.2.1), bitset (§34.2.2), and tuple (§34.2.4.2).
+The main criteria for including a class in the library were that:
+	- it could be helpful to almost every C++ programmer (both novices and experts),
+	- it could be provided in a general form that did not add significant overhead compared to a simpler version of the same facility, and
+	- that simple uses should be easy to learn (relative to the inherent complexity of their task).
+Essentially, the C++ standard library provides the most common fundamental data structures together with the fundamental algorithms used on them.

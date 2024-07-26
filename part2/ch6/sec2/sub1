@@ -1,0 +1,41 @@
+6.2.1 Fundamental Types
+
+C++ has a set of fundamental types corresponding to the most common
+basic storage units of a computer and the most common ways of using
+them to hold data:
+  §6.2.2  A Boolean type (bool)
+  §6.2.3  Character types (such as char and wchar_t)
+  §6.2.4  Integer types (such as int and long long)
+  §6.2.5  Floating-point types (such as double and long double)
+  §6.2.7  A type, void, to signify the absence of information
+From these types, we can construct other types using declarator
+operators:
+  §7.2    Pointer types (such as int*)
+  §7.3    Array types (such as char[])
+  §7.7    Reference types (such as double& and vector<int>&&)
+In addition, a user can define additional types:
+  §8.2    Data structures and classes (Chapter 16)
+  §8.4    Enumeration types for representing specific sets of values
+          (enum and enum class)
+The Boolean, character, and integer types are collectively called
+integral types. The integral and floating-point types are collectively
+called arithmetic types. Enumerations and classes (Chapter 16) are
+called user-defined types because they must be defined by users rather
+than being available for use without previous declaration, the way
+fundamental types are. In contrast, fundamental types, pointers, and
+references are collectively referred to as built-in types. The standard
+library provides many user-defined types (Chapter 4, Chapter 5).
+  The integral and floating-point types are provided in a variety of
+sizes to give the programmer a choice of the amount of storage
+consumed, the precision, and the range available for computations
+(§6.2.8). The assumption is that a computer provides bytes for holding
+characters, words for holding and computing integer values, some entity
+suitable for floating-point computation, and addresses for referring to
+those entities. The C++ fundamental types together with pointers and
+arrays present these machine-level notions to the programmer in a
+reasonably implementation-independent manner.
+  For most applications, we could use bool for logical values, char for
+characters, int for integer values, and double for floating-point
+values. The remaining fundamental types are variations for
+optimizations, special needs, and computability that are best ignored
+until such needs arise.

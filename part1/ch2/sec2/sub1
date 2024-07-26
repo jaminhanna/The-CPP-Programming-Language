@@ -1,0 +1,45 @@
+2.2.1 Hello, World!
+
+The minimal C++ program is
+
+	int main() { }		// the minimal C++ program
+
+This defines a function called main, which takes no arguments and does nothing (§15.4).
+	Curly braces, { }, express grouping in C++. Here, they indicate the start and end of the function body. The double slash, //, begins a comment that extends to the end of the line. A comment is for the human reader; the compiler ignores comments.
+	Every C++ program must have exactly one global function named main(). The program starts by executing that function. The int value returned by main(), if any, is the program's return value to "the system." If no value is returned, the system will receive a value indicating successful completion. A nonzero value from main() indicates failure. Not every operating system and execution environment make use of that return value. Linux/Unix-based environments often do, but Windows-based environments rarely do.
+	Typically, a program produces some output. Here is a program that writes Hello, World!:
+
+	#include <iostream>
+
+	int main()
+	{
+		std::cout << "Hello, World!\n";
+	}
+
+The line #include <iostream> instructs the compiler to include the declarations of the standard stream I/O facilities as found in iostream. Without these declarations, the expression
+
+	std::cout << "Hello, World!\n"
+
+would make no sense. The operator << ("put to") writes its second argument onto its first. In this case, the string literal "Hello, World!\n" is written onto the standard output stream std::cout. A string literal is a sequence of characters surrounded by double quotes. In a string literal, the backslash character \ followed by another character denotes a single "special character." In this case, \n is the newline character, so that the characters written are Hello, World! followed by a newline.
+	The std:: specifies that the name cout is to be found in the standard-library namespace (§2.4.2, Chapter 14). I usually leave out the std:: when discussing standard features; §2.4.2 shows how to make names from a namespace visible without explicit qualification.
+	Essentially all executable code is placed in functions and called directly or indirectly from main(). For example:
+
+	#include <iostream>
+	using namespace std;		// make names from std visible without std:: (§2.4.2)
+
+	double square(double x)		// square a double precision floating-point number
+	{
+		return x*x;
+	}
+
+	void print_square(double x)
+	{
+		cout << "the square of " << x << " is " << square(x) << "\m";
+	}
+
+	int main()
+	{
+		print_square(1.234);	// print: the square of 1.234 is 1.52276
+	}
+
+A "return type" void indicates that a function does not return a value.

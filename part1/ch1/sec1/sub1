@@ -1,0 +1,9 @@
+1.1 The Structure of This Book
+
+A pure tutorial sorts its topics so that no concept is used before it has been introduced; it must be read linearly starting with page one. Conversely, a pure reference manual can be accessed starting at any point; it describes each topic succinctly with references (forward and backward) to related topics. A pure tutorial can in principle be read without prerequisites -- it carefully describes all. A pure reference can be used only by someone familiar with all fundamental concepts and techniques. This book combines aspects of both. If you know most concepts and techniques, you can access it on a per-chapter or even on a per-section basis. If not, you can start at the beginning, but try not to get bogged down in details. Use the index and the cross-references.
+Making parts of the book relatively self-contained implies some repetition, but repetition also serves as review for people reading the book linearly. The book is heavily cross-referenced both to itself and to the ISO C++ standard. Experienced programmers can read the (relatively) quick "tour" of C++ to gain the overview needed to use the book as a reference. This book consists of four parts:
+
+Part I		Introduction: Chapter 1 (this chapter) is a guide to this book and provides a bit of C++ background. Chapters 2-5 give a quick introduction to the C++ language and its standard library.
+Part II		Basic Facilities: Chapter 6-15 describe C++'s built-in types and the basic facilities for constructing programs out of them.
+Part III	Abstraction Mechanisms: Chapters 16-29 describe C++'s abstraction mechanisms and their use for object-oriented and generic programming.
+Part IV		Chapters 30-44 provide an overview of the standard library and a discussion of compatability issues.

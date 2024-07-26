@@ -1,0 +1,19 @@
+6
+
+Types and Declarations
+
+Perfection is achieved only on the point of collapse.
+- C. N. Parkinson
+
+- The ISO C++ Standard
+    Implementations; The Basic Source Character Set
+- Types
+    Fundamental Types; Booleans; Character Types; Integer Types;
+    Floating-Point Types; Prefixes and Suffixes; void; Sizes; Alignment
+- Declarations
+    The Structure of Declarations; Declaring Multiple Names; Names;
+    Scope; Initialization; Deducing a Type: auto and decltype()
+- Objects and Values
+    Lvalues and Rvalues; Lifetimes of Objects
+- Type Aliases
+- Advice

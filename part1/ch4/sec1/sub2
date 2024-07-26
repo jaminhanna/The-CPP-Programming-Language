@@ -1,0 +1,33 @@
+4.1.2 The Standard-library Headers and Namespace
+
+Every standard-library facility is provided through some standard header. For example:
+
+	#include<string>
+	#include<list>
+
+This makes the standard string and list available.
+	The standard library is defined in a namespace (§2.4.2, §14.3.1) called std. To use standard library facilties, the std:: prefix can be used:
+
+	std::string s {"Four legs Good; two legs Baaad!"};
+	std::list<std::string> slogans {"War is peace", "Freedom is slavery", "Ignorance is Strength"};
+
+For simplicity, I will rarely use the std:: prefix explicitly in examples. Neither will I always #include the necessary headers explicitly. To compile and run the program fragments here, you must #include the appropriate headers (as listed in §4.4.5, §4.5.5, and §30.2) and make the names they declare accessible. For example:
+
+	#include<string>	// make the standard string facilities accessible
+	using namespace std;	// make std names available without std:: prefix
+
+	string s {"C++ is a general-purpose programming language"};	// OK: string is std::string
+
+It is generally in poor taste to dump every name from a namespace into the global namespace. However, in this book, I use the standard library almost exclusively and it is good to know what it offers. So, I don't prefix every use of a standard library name with std::. Nor do I #include the appropriate headers in every example. Assume that done.
+	Here is a selection of standard-library headers, all supplying declarations in namespace std:
+
+		Selected Standard Library Headers (continues)
+	<algorithm>		copy(), find(), sort()		§32.2		§iso.25
+	<array>			array				§34.2.1		§iso.23.3.2
+	<chrono>		duration, time_point		§35.2		§iso.20.11.2
+	<cmath>			sqrt(), pow()			§40.3		§iso.26.8
+	<complex>		complex, sqrt(), pow()		§40.4		$iso.26.8
+	<fstream>		fstream, ifstream, ofstream	§38.2.1		§iso.27.9.1
+	...
+
+This listing is far from complete; see §30.2 for more information.

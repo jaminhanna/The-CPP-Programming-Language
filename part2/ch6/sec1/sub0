@@ -1,0 +1,83 @@
+6.1 The ISO C++ Standard
+
+The C++ language and standard library are defined by their ISO
+standard: ISO/IEC 14882:2011. In this book, references to the standard
+are of the form §23.3.6.1. In cases where the text of this book is
+considered imprecise, incomplete, or possibly wrong, consult the
+standard. But don't expect the standard to be a tutorial or to be
+easily accessible by non-experts.
+  Strictly adhering to the C++ language and library standard doesn't by
+itself guarantee good code or even portable code. The standard doesn't
+say whether a piece of code is good or bad; it simply says what a
+programmer can and cannot rely on from an implementation. It is easy to
+write perfectly awful standard-conforming programs, and most real-world
+programs rely on features that the standard does not guarantee to be
+portable. They do so to access system interfaces and hardware features
+that cannot be expressed directly in C++ or require reliance on
+specific implementation details.
+  Many important things are deemed implementation-defined by the
+standard. This means that each implementation must provide a specific,
+well-defined behavior for a construct and that behavior must be
+documented. For example:
+
+  unsigned char c1 = 64; // well defined: a char has at least 8 bits
+                         // and can always hold 64
+  unsigned char c2 = 1256; // implementation-defined: truncation if a
+                           // char has only 8 bits
+
+The initialization of c1 is well defined because a char must be at
+least 8 bits. However, the behavior of the initialization of c2 is
+implementation-defined because the number of bits in a char is
+implementation-defined. If the char has only 8 bits, the value 1256
+will be truncated to 232 (§10.5.2.1). Most implementation-defined
+features relate to differences in the hardware used to run a program.
+  Other behaviors are unspecified; that is, a range of possible
+behaviors are acceptable, but the implementer is not obliged to specify
+which actually occur. usually, the reason for deeming something
+unspecified is that the exact behavior is unpredictable for fundamental
+reasons. For example, the exact value returned by new is unspecified.
+So is the value of a variable assigned to from two threads unless some
+synchronization mechanism has been employed to prevent a data race
+(§41.2).
+  When writing real-world programs, it is usually necessary to rely on
+implementation-defined behavior. Such behavior is the price we pay for
+the ability to operate effectively on a large range of systems. For
+example, C++ would have been much simpler if all characters had been 8
+bits and all pointers 32 bits. However, 16-bit and 32-bit character
+sets are not uncommon, and machines with 16-bit and 64-bit pointers are
+in wide use.
+  To maximize portability, it is wise to be explicit about what
+implementation-defined features we rely on and to isolate the more
+subtle examples in clearly marked sections of a program. A typical
+example of this practice is to present all dependencies on hardware
+sizes in the form of constants and type definitions in some header
+file. To support such techniques, the standard library provides
+numeric_limits (§40.2). Many assumptions about implementation-defined
+features can be checked by stating them as static assertions
+(§2.4.3.3). For example:
+
+  static_assert(4<=sizeof(int),"sizeof(int) too small");
+
+Undefined behavior is nastier. A construct is deemed undefined by the
+standard if no reasonable behavior is required by an implementation.
+Typically, some obvious implementation technique will cause a program
+using an undefined feature to behave very badly. For example:
+
+const int size = 4*1024;
+char page[size];
+
+void f()
+{
+    page[size+size] = 7; // undefined
+}
+
+Plausible outcomes of this code fragment include overwriting unrelated
+data and triggering a hardware error/exception. An implementation is
+not required to choose among plausible outcomes. Where powerful
+optimizers are used, the actual effects of undefined behavior can
+become quite unpredictable. If a set of plausible and easily
+implementable alternatives exist, a feature is deemed unspecified or
+implementation-defined rather than undefined.
+  It is worth spending considerable time and effort to ensure that a
+program does not use something deemed unspecified or undefined by the
+standard. In many cases, tools exist to help do this.

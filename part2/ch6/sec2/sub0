@@ -1,0 +1,37 @@
+6.2 Types
+
+Consider:
+
+  x = y+f(2);
+
+For this to make sense in a C++ programm the names x, y, and f must be
+suitably declared. That is, the programmer must specify that entities
+named x, y, and f exist and that they are of types for which =
+(assignment), + (addition), and () (function call), respectively, are
+meaningful.
+  Every name (identifier) in a C++ program has a type associated with
+it. This type determines what operations can be applied to the name
+(that is, to the entity referred to by the name) and how such
+operations are interpreted. For example:
+
+  float x; // x is a floating-point variable
+  int y = 7; // y is an integer variable with the initial value 7
+  float f(int); // f is a function taking an argument of type int and
+                // returning a floating-point number
+
+These declarations would make the example meaningful. Because y is
+declared to be an int, it can be assigned to, used as an operand for +,
+etc. On the other hand, f is declared to be a function that takes an
+int as its argument, so it can be called given the integer 2.
+  This chapter presents fundamental types (§6.2.1) and declarations
+(§6.3). Its examples just demonstrate language features; they are not
+intended to do anything useful. More extensive and realistic examples
+are saved for later chapters. This chapter simply provides the most
+basic elements from which C++ programs are constructed. You must know
+these elements, plus the terminology and simple syntax that go with
+them, in order to complete a real project in C++ and especially to read
+code written by others. However, a thorough understanding of every
+detail mentioned in this chapter is not a requirement for understanding
+the following chapters. Consequently, you may prefer to skim through
+this chapter, observing the major concepts, and return later as the
+need for understanding more details arises.

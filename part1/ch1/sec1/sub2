@@ -1,0 +1,15 @@
+1.1.2 Basic Facilities
+
+Part II focuses on the subset of C++ that supports the styles of programming traditionally done in C and similar languages. It introduces the notions of type, object, scope, and storage. It presents the fundamentals of computation: expressions, statements, and functions. Modularity -- as supported by namespaces, source files, and exception handling -- is also discussed:
+Chapter 6	Types and Declarations: Fundamental types, naming, scopes, initialization, simple type deduction, object lifetimes, and type aliases.
+Chapter 7	Pointers, Arrays, and References
+Chapter 8	Structures, Unions, and Enumerations
+Chapter 9	Statements: Declarations as statements, selection statements (if and switch), iteration statements (for, while, and do), goto, and comments
+Chapter 10	Expressions: A desk calculator example, survey of operators, constant expressions, and implicit type conversion.
+Chapter 11	Select Operations: Logical operators, the conditional expression, increment and decrement, free store (new and delete), {}-lists, lambda expressions, and explicit type conversion (static_cast and const_cast)
+Chatper 12	Functions: Function declarations and definitions, inline functions, constexpr functions, argument passing, overloaded functions, pre- and postconditions, pointers to functions, and macros
+Chapter 13	Exception Handling: Styles of error handling, exception guarantees, resource management, enforcing invariants, throw and catch, a vector implementation
+Chapter 14	Namespaces: namespace, modularization and interface, composition using namespaces
+Chapter 15	Source Files and Programs: Separate compilation, linkage, using header files, and program start and termination
+I assume that you are familiar with most of the programming concepts in Part I. For example, I explain the C++ facilities for expressing recursion and iteration, but I do not go into technical details or spend much time explaining how these concepts are useful.
+The exception to this rule is exception. Many programmers lack experience with exceptions or got their experience from languages (such as Java) where resource management and exception handling are not integrated. Consequently, the chapter on exception handling (Chapter 13) presents the basic philosophy of C++ exception handling and resource management. It goes into some detail about strategy with a focus on the "Resource Acquisition is Initialization" technique (RAII).

@@ -1,0 +1,19 @@
+6.1.2 The Basic Source Character Set
+
+The C++ standard and the examples in this book are written using the
+basic source character set consisting of the letters, digits, graphical
+characters, and whitespace characters in the U.S. variant of the
+international 7-bit character set ISO 646-1983 called ASCII
+(ANSI3.4-1968). This can cause problems for people who use C++ in an
+environment with a different character set:
+  - ASCII contains punctuation characters and operator symbols (such as
+    ], {, and !) that are not available in some character sets.
+  - We need a notation for characters that do not have a convenient
+    character representation (such as newline and "the character with
+    value 17").
+  - ASCII doesn't contain characters (such as ñ, Þ, Æ) that are used
+    for writing languages other than English.
+To use an extended character set for source code, a programming
+environment can map the extended character set into the basic source
+character set in one of several ways, for example, by using universal
+character names (§6.2.3.2).

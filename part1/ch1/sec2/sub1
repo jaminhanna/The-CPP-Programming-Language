@@ -1,0 +1,25 @@
+1.2.1 Programming Style
+
+Language features exist to provide support for programming styles. Please don't look at an individual language feature as a solution, but as one building block from a varied set which can be combined to express solutions.
+The general ideals for design and programming can be expressed simply:
+- Express ideas directly in code.
+- Express independent ideas independently in code.
+- Represent relationships among ideas directly in code.
+- Combine ideas expressed in code freely -- where and only where combinations make sense.
+- Express simple ideas simply.
+These are ideals shared by many people, but languages designed to support them can differ dramatically. A fundamental reason for that is that a language embodies a set of engineering tradeoffs reflecting differing needs, tastes, and histories of various individuals and communities. C++'s answers to the general design challenges were shaped by its origins in systems programming (going back to C and BCPL [Richards,1980]), its aim to address issues of program complexity through abstraction (going back to Simula), and its history.
+The C++ language features most directly support four programming styles:
+- Procedural programming
+- Data abstraction
+- Object-oriented programming
+- Generic programming
+However, the emphasis is on the support of effective combinations of these. The best (most maintainable, most readable, smallest, fastest, etc.) solution to most nontrivial programs tends to be one that combines aspects of these styles.
+As is usual with important terms in the computing world, a wide variety of definitions of these terms are popular in various parts of the computing industry and academia. For example, what I refer to as a "programming style," others call a "programming technique" or a "paradigm." I prefer to use "programming technique" for something more limited and language-specific. I feel uncomfortable with the word "paradigm" as pretentious and (from Kuhn's original definition) having implied claims of exclusivity.
+My ideal is language facilities that can be used elegantly in combination to support a continuum of programming styles and a wide variety of programming techniques.
+- Procedural programming: This is programming focused on processing and the design of suitable data structures. It is what C was designed to support (and Algol, and Fortran, as well as many other languages). C++'s support comes in the form of the built-in types, operators, statements, functions, structs, unions, etc. With minor exceptions, C is a subset of C++. Compared to C, C++ provides further support for procedural programming in the form of many additional language constructs and a stricter, more flexible, and more supportive type system.
+- Data abstraction: This is programming focused on the design of interfaces, hdiding implementation details in general and representations in particular. C++ supports concrete and abstract classes. The facilities for defining classes with private implementation details, constructors and destructors, and associated operations directly support this. The notion of an abstract class provides direct support for complete data hiding.
+Object-oriented programming: This is programming focused on the design, implementation, and use of class hierarchies. In addition to allowing the definition lalattices of classes, C++ provides a variety of features for navigating class lattices and for simplifying the definition of a class out of existing ones. Class hierarchies provide run-time polymorphism (§20.3.2, §21.2) and encapsulation (§20.4, §20.5).
+- Generic programming: This is programming focused on the design, implementation, and use of general algorithms. Here, "general" means that an algorithm can be designed to accept a wide variety of types as long as they meet the algorithm's requirements on its arguments. The template is C++'s main support for generic programming. Templates provide (compile-time) parametric polymorphism.
+Just about anything that increases the flexibility or efficiency of classes improves the support of all of those styles. Thus, C++ could be (and has been called) class oriented.
+Each of these styles of design and programming has contributed to the synthesis that is C++. Focusing exclusively on one of these styles is a mistake: except for toy examples, doing so leads to wasted development effort and suboptimal (inflexible, verbose, poorly performing, unmaintainable, etc.) code.
+I wince when someone characterizes C++ exclusively through one of these styles (e.g., "C++ is an object-oriented language") or uses a term (e.g., "hybrid" or "mixed paradigm") to imply that a more restrictive language would be preferable. The former misses the fact that all the styles mentioned have contributed something significant to the synthesis; the latter denies the validity of the synthesis. The styles mentioned are not distinct alternatives: each contributes techniques to a more expressive and effective style of programming, and C++ provides direct language support for their use in combination.

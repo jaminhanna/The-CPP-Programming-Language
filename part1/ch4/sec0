@@ -1,0 +1,16 @@
+4
+
+A Tour of C++: Containers and Algorithms
+
+Why waste time learning when ignorance is instantaneous? - Hobbes
+
+- Libraries
+	Standard-Library Overview; The Standard-Library Headers and Namespace
+- Strings
+- Stream I/O
+	Output; Input; I/O of User-Defined Types
+- Containers
+	vector; list; map; unordered_map; Container Overview
+- Algorithms
+	Use of Iterators; Iterator Types; Stream Iterators; Predicates; Algorithm Overview; Container Algorithms
+- Advice

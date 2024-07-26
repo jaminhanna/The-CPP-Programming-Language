@@ -1,0 +1,21 @@
+1.1.3 Abstraction Mechanisms
+
+Part III describes the C++ facilities supporting various forms of abstraction, including object-oriented and generic programming. The chapters fall into three rough categories: classes, class hierarchies, and templates.
+The first four chapters concentrate on the classes themselves:
+Chapter 16	Classes: The notion of a user-defined type, a class, is the foundation of all C++ abstraction mechanisms.
+Chapter 17	Constructors, Cleanup, Copy, and Move shows how a programmer can define the meaning of creation and initialization of objects of a class. Further, the meaning of copy, move, and destruction can be specified.
+Chapter 18	Operator Overloading presents the rules for giving meaning to operators for user-defined types with an emphasis on conventional arithmetic and logical operators, such as +, *, and &.
+Chapter 19	Special Operators discusses the use of user-defined operator for non-arithmetic purposes, such as [] for subscripting, () for function objects, and -> for "smart pointers."
+Classes can be organized into hierarchies:
+Chapter 20	Derived Classes presents the basic language facilities for building hierarchies out of classes and the fundamental ways of using them. We can provide complete separation between an interface (an abstract class) and its implementations (derived classes); the connection between them is provided by virtual functions. The C++ model for access control (public, protected, and private) is presented.
+Chapter 21	Class Hierarchies discusses ways of using class hierarchies effectively. It also presents the notion of multiple inheritance, that is, a class having more than one direct base class.
+Chapter 22	Run-Time Type Information presents ways to navigate class hierarchies using data stored in objects. We can use dynamic_cast to inquire whether an object of a base class was defined as an object of a derived class and use the typeid to gain minimal information from an object (such as the name of its class).
+Many of the most flexible, efficient, and useful abstractions involve the parameterization of types (classes) and algorithms (functions) with other types and algorithms:
+Chapter 23	Templates presents the basic principles behind templates and their use. Class templates, function templates, and template aliases are presented.
+Chapter 24	Generic Programming introduces the basic techniques for designing generic programs. The technique of lifting an abstraction algorithm from a number of concrete code examples is central, as is the notion of concepts specifying a generic algorithm's requirements on its arguments.
+Chapter 25	Specialization describes how templates are used to generate classes and functions, specializations, given a set of template arguments.
+Chapter 26	Instantiation focuses on the rules for name binding.
+Chapter 27	Templates and Hierarchies explains how templates and class hierarchies can be used in combination.
+Chapter 28	Metaprogramming explores how templates can be used to generate programs. Templates provide a Turing-complete mechanism for generating code.
+Chapter 29	A Matrix Design gives a longish example to show how language features can be used in combination to solve a complex design problem: the design of an N-dimensional matrix with near-arbitrary element types.
+The language features supporting abstraction techniques are described in the context of those techniques. The presentation technique in Part III differs from that of Part II in that I don't assume that the reader knows the techniques described.

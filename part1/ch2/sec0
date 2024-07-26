@@ -1,0 +1,17 @@
+CHAPTER 2
+
+A Tour of C++: The Basics
+
+The first thing we do, let's
+kill all the language lawyers.
+- Henry VI, Part II
+
+- Introduction
+- The Basics
+	Hello, World!; Types, Variables, and Arithmetic; Constants; Tests and Loops; Pointers, Arrays, and Loops
+- User-Defined Types
+	Structures; Classes; Enumerations
+- Modularity
+	Separate Compilation; Namespaces; Error Handling
+- Postscript
+- Advice

@@ -1,0 +1,46 @@
+6.2.2 Booleans
+
+A boolean, bool, can have one of the two values true or false. A
+Boolean is used to express the results of logical operations. For
+example:
+
+  void f(int a, int b)
+  {
+      bool b1 {a==b};
+      // ...
+  }
+
+If a and b have the same value, b1 becomes true; otherwise, b1 becomes
+false.
+  A common use of bool is as the type of the result of a function that
+tests some condition (a predicate). For example:
+
+  bool is_open(File*);
+
+  bool greater(int a, int b) { return a>b; }
+
+By definition, true has the value 1 when converted to an integer and
+false has the value 0. Conversely, integers can be implicitly converted
+to bool values: nonzero integers convert to true and 0 converts to
+false. For example:
+
+  bool b1 = 7; // 7!=0, so b becomes true
+  bool b2 {7}; // error: narrowing (§2.2.2, §10.5)
+
+  int i1 = true; // i1 becomes 1
+  int i2 {true}; // i2 becomes 1
+
+If you prefer to use the {}-initializer syntax to prevent narrowing,
+yet still want to convert an int to a bool, you can be explicit:
+
+  void f(int i)
+  {
+      bool b {i!=0};
+      // ...
+  }
+
+In arithmetic and logical expressions, bools are converted to ints;
+integer arithmetic and logical operations are performed on the
+converted values. If the result needs to be converted back to bool, a 0
+is converted to false and a nonzero value is converted to true. For
+example:
