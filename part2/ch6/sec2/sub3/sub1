@@ -1,0 +1,61 @@
+6.2.3.1 Signed and Unsigned Characters
+
+It is implementation-defined whether a plain char is considered signed
+or unsigned. This opens the possibility for some nasty surprises and
+implementation dependencies. For example:
+
+  char c = 255; // 255 is "all ones," hexadecimal 0xff
+  int i = c;
+
+What will be the value of i? Unfortunately, the answer is undefined. On
+an implementation with 8-bit bytes, the answer depends on the meaning
+of the "all ones" char bit pattern when extended into an int. On a
+machine where a char is unsigned, the answer is 255. On a machine where
+a char is signed, the answer is -1. In this case, the compiler might
+warn about the conversion of the literal 255 to the char value -1.
+However, C++ does not offer a general mechanism for detecting this kind
+of problem. One solution is to avoid plain char and use the specific
+char types only. Unfortunately, some standard-library functions (such
+as strcmp(), take plain chars only (§43.4).
+  A char must behave identically to either a signed char or an unsigned
+char. However, the three char types are distinct, so you can't mix
+pointers to different char types. For example:
+
+  void f(char c, signed char sc, unsigned char uc)
+  {
+      char* pc = &uc; // error: no pointer conversion
+      signed char* psc = pc; // error: no pointer conversion
+      unsigned char* puc = pc; // error: no pointer conversion
+      psc = puc; // error: no pointer conversion
+  }
+
+Variables of the three char types can be freely assigned to each other.
+However, assigning a too-large value to a signed char (§10.5.2.1) is
+still undefined. For example:
+
+  void g(char c, signed char sc, unsigned char uc)
+  {
+      c = 255; // implementation-defined if plain chars are signed and
+               // have 8 bits
+      c = sc; // OK
+      c = uc; // implementation-defined if plain chars are signed and
+              // if uc's value is too large
+      sc = uc; // implementation-defined if uc's value is too large
+      uc = sc; // OK: conversion to unsigned
+      sc = c; // implementation-defined if plain chars are unsigned and
+              // if c's value is too large
+      uc = c; // OK: conversion to unsigned
+  }
+
+To be concrete, assume that a char is 8 bits:
+
+  signed char sc = -160;
+  unsigned char uc = sc; // uc == 94 (because (256-160==116)
+  cout << uc; // print '^'
+
+  char count[256]; // assume 8-bit chars
+  ++count[sc]; // likely disaster: out-of-range access
+  ++count[uc]; // OK
+
+None of these problems and confusions occur if you use plain char
+throughout and avoid negative character values.

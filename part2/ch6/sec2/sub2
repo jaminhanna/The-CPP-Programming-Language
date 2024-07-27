@@ -44,3 +44,28 @@ integer arithmetic and logical operations are performed on the
 converted values. If the result needs to be converted back to bool, a 0
 is converted to false and a nonzero value is converted to true. For
 example:
+
+  bool a = true;
+  bool b = true;
+
+  bool x = a+b; // a+b is 2, so x becomes true
+  bool y = a||b; // a||b is 1, so y becomes true ("||" means "or")
+  bool z = a-b; // a-b is 0, so z becomes false
+
+A pointer can be implicitly converted to a bool (§10.5.2.5). A non-null
+pointer converts to true; pointers with the value nullptr convert to
+false. For example:
+
+  void g(int* p)
+  {
+      bool b = p; // narrows to true or false
+      bool b2 {p!=nullptr}; // explicit test against nullptr
+
+      if (p) { // equivalent to p!=nullptr
+          // ...
+      }
+  }
+
+I prefer if (p) over if (p!=nullptr) becomes it more directly expresses
+the notion "if p is valid" and also because it is shorter. The shorter
+form leaves fewer opportunities for mistakes.

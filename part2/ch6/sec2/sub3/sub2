@@ -1,0 +1,78 @@
+6.2.3.2 Character Literals
+
+A character literal is a single character enclosed in single quotes,
+for example, 'a' and '0'. The type of a character literal is char. A
+character literal can be implicitly converted to its integer value in
+the character set of the machine on which the C++ program is to run.
+For example, if you are running on a machine using the ASCII character
+set, the value of '0' is 48. The use of character literals rather than
+decimal notation makes programs more portable.
+  A few characters have standard names that use the backslash as an
+escape character:
+
+Name                 ASCII Name   C++ Name
+Newline              NL (LF)      \n
+Horizontal tab       HT           \t
+Vertical tab         VT           \v
+Backspace            BS           \b
+Carriage return      CR           \r
+Form feed            FF           \f
+Alert                BEL          \a
+Backslash            \            \\
+Question mark        ?            \?
+Single quote         '            \'
+Double quote         "            \"
+Octal number         ooo          \ooo
+Hexadecimal number   hhh          \xhhh ...
+
+Despite their appearance, these are single characters.
+  We can represent a character from the implementation character set as
+a one-, two-, or three-digit octal number (\ followed by octal digits)
+or as a hexadecimal number (\x followed by hexadecimal digits). There
+is no limit to the number of hexadecimal digits in the sequence. A
+sequence of octal or hexadecimal digits is terminated by the first
+character that is not an octal digit or a hexadecimal digit,
+respectively. For example:
+
+Octal   Hexadecimal   Decimal   ASCII
+'\6'    '\x6'         6         ACK
+'\60'   '\x30'        38        '0'
+'\137'  '\x05f'       95        '_'
+
+This makes it possible to represent every character in the macine's
+character set and, in particular, to embed such characters in character
+strings (see §7.3.2). Using any numeric notation for characters makes a
+program nonportable across machines with different character sets.
+  It is possible to enclose more than one character in a character
+literal, for example, 'ab'. Such uses are archaic,
+implementation-dependent, and best avoided. The type of such a
+multicharacter literal is an int.
+  When embedding a numeric constant in a string using the octal
+notation, it is wise always to use three digits for the number. The
+notation is hard enough to read without having to worry about whether
+or not the character after a constant is a digit. For hexadecimal
+constants, use two digits. Consider these examples:
+
+  char v1[] = "a\xah\129"; // 6 chars: 'a' '\xa' 'h' '\12' '9' '\0'
+  char v2[] = "a\xah\127"; // 5 chars: 'a' '\xa' 'h' '\127' '\0'
+  char v3[] = "a\xad\127"; // 4 chars: 'a' '\xad' \127 '\0'
+  char v4[] = "a\xad\0127"; // 5 chars: 'a' '\xad' '\012' '7' '\0'
+
+Wide character literals are of the form L'ab' and are of type wchar_t.
+The number of characters between the quotes and their meanings are
+implementation-defined.
+  A C++ program can manipulate character sets that are much richer than
+the 127-character ASCII set, such as Unicode. Literals of such larger
+character sets are presented as sequences of four or eight hexadecimal
+digits preceded by a U or a u. For example:
+
+  U'\UFADEBEEF'
+  u'\uDEAD'
+  u'\xDEAD'
+
+The shorter notation u'\uXXXX' is equivalent to U'\U0000XXXX' for any
+hexadecimal digit X. A number of hexadecimal digits different from four
+or eight is a lexical error. The meaning of the hexadecimal number is
+defined by the ISO/IEC 10646 standard and such values are called
+universal character names. In the C++ standard, universal character
+names are described in §iso.2.2, §iso.2.3, §iso.2.14.5, and §iso.E.
